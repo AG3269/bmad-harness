@@ -1,0 +1,9 @@
+{
+  "criteria": [
+    {"id": "AC1", "verdict": "covered", "evidence": "the reader describes a photo attach path"},
+    {"id": "AC9", "verdict": "missing", "evidence": "the reader says nothing about restricting access by family"}
+  ],
+  "extra": [],
+  "divergences": [],
+  "overall": "The upload is there. Nothing in the code suggests cross-family reads are prevented."
+}

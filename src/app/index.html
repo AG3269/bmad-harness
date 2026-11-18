@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="app-token" content="__APP_TOKEN__">
+  <meta name="color-scheme" content="dark">
+  <title>Harness Studio</title>
+  <style>
+    :root{font:14px/1.5 "Segoe UI",Arial,sans-serif;color:#eef1f8;background:#0b0e16;--muted:#a1acc0;--line:#2a3346;--purple:#ac9aff;--green:#73e0b7;--amber:#f6cb86}
+    *{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}button{cursor:pointer;color:inherit}button:disabled{opacity:.42;cursor:not-allowed}button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--purple);outline-offset:3px}h1,h2,h3,p{margin:0}button{border:1px solid var(--line);border-radius:7px;background:#1a2130;padding:9px 13px;font-size:12px}button:hover:not(:disabled){filter:brightness(1.2)}.primary{background:var(--purple);border-color:var(--purple);color:#171027;font-weight:650}.ghost{background:transparent}.layout{display:grid;grid-template-columns:215px minmax(0,1fr);min-height:100vh}.sidebar{background:#0f131d;border-right:1px solid var(--line);padding:30px 17px;display:flex;flex-direction:column;gap:30px}.brand{display:flex;gap:11px;align-items:center;font-size:18px;font-weight:650;padding:0 10px}.brandmark{display:grid;place-items:center;background:linear-gradient(135deg,#b3a5ff,#7c60db);color:#18122b;border-radius:10px;width:34px;height:34px;font-size:21px}.brand small{display:block;color:var(--muted);font-size:10px;font-weight:400;letter-spacing:2px}.nav{display:grid;gap:7px}.nav button{text-align:left;background:transparent;border-color:transparent;color:var(--muted)}.nav button.active{background:#a897ff12;border-color:#a897ff25;color:#dacfff}.eyebrow{font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:var(--muted);font-weight:550;margin-bottom:9px}.sidebar .eyebrow{padding-left:12px}.projects{display:grid;gap:9px}.projects button{text-align:left;font-size:11px;background:none;border:0;padding:7px 12px;color:#c4cde0;overflow-wrap:anywhere}.localbox{margin-top:auto;border:1px solid var(--line);padding:13px;border-radius:9px;color:var(--muted);font-size:11px}.localbox strong{color:var(--green);display:block;margin-bottom:5px;font-weight:500}.main{min-width:0}.topbar{height:74px;border-bottom:1px solid var(--line);padding:0 34px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted)}.local-pill{border:1px solid #335347;background:#162820;border-radius:20px;padding:4px 10px;color:var(--green);font-size:10px}.page{padding:32px 34px;max-width:1750px;margin:auto}.heading{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:27px}h1{font-size:29px;font-weight:600;letter-spacing:-.9px}.subtitle{color:var(--muted);font-size:12px;margin-top:6px}.actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin:0 0 28px}.metric{border:1px solid var(--line);background:linear-gradient(130deg,#171d2a,#111620);border-radius:10px;padding:17px 19px}.metric span{display:block;color:var(--muted);font-size:11px}.metric strong{display:block;font-size:28px;letter-spacing:-1px;font-weight:550;margin-top:6px}.toolbar{display:flex;justify-content:space-between;gap:13px;align-items:center;margin-bottom:18px}.tabs{display:flex;gap:4px;flex-wrap:wrap}.tabs button{padding:6px 11px;font-size:11px;background:none;border-color:transparent;color:var(--muted)}.tabs button.active{background:#283045;color:#eee8ff}.search{max-width:300px;width:100%;background:#101622;border:1px solid var(--line);color:inherit;border-radius:7px;padding:9px 12px;font-size:12px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(335px,1fr));gap:17px;align-items:stretch}.card{background:#131925;border:1px solid var(--line);border-radius:11px;overflow:hidden;min-width:0;display:flex;flex-direction:column}.card.attention{border-color:#735943}.card-body{padding:20px;flex:1}.card-top{display:flex;justify-content:space-between;gap:9px;align-items:center;margin-bottom:18px}.project{font-size:11px;color:#c6d0e3;overflow-wrap:anywhere}.badge{display:inline-flex;align-items:center;gap:5px;padding:3px 7px;border-radius:5px;font-size:10px;white-space:nowrap;color:var(--green);background:#19362c}.badge.warn{color:var(--amber);background:#382c1e}.badge.gray{color:#c3cee0;background:#293243}.badge.red{color:#ffb5c5;background:#3e2331}.card h2{font-size:19px;font-weight:600;letter-spacing:-.5px}.description{font-size:12px;color:var(--muted);margin:7px 0 20px;min-height:35px}.stage{font-size:11px;display:flex;justify-content:space-between;gap:8px;color:#b9c5d9}.track{display:flex;gap:4px;margin:9px 0 13px}.track span{height:4px;flex:1;background:#2c3548;border-radius:3px}.track .done{background:var(--purple)}.track .current{background:var(--green)}.meta{font-size:10px;color:var(--muted);overflow-wrap:anywhere}.notice{padding:12px;border:1px solid #714453;background:#34212b;color:#efb3c2;font-size:11px;border-radius:7px;margin-top:15px;overflow-wrap:anywhere;white-space:pre-wrap;max-height:170px;overflow:auto}.notice strong{display:block;font-weight:550;margin-bottom:4px}.notice.safe{background:#172d26;border-color:#305446;color:#a6d9c1}.notice.neutral{background:#20293a;border-color:#39475e;color:#b9c8df}.card-footer{display:flex;gap:8px;align-items:center;justify-content:space-between;padding:13px 15px;border-top:1px solid var(--line);background:#ffffff02}.card-footer button{font-size:11px;padding:7px 10px}.empty{grid-column:1/-1;border:1px dashed var(--line);border-radius:10px;padding:35px;text-align:center;color:var(--muted)}.safety{color:#8e9db5;font-size:11px;padding:20px 0}.banner{border:1px solid #74444c;border-radius:8px;background:#35202a;color:#ffc1ca;padding:13px;margin-bottom:19px;font-size:12px;white-space:pre-wrap}.banner:empty{display:none}.overlay{position:fixed;inset:0;z-index:10;background:#030711bf;backdrop-filter:blur(4px);display:flex;justify-content:center;align-items:center;padding:25px}[hidden]{display:none!important}.dialog{width:680px;max-width:100%;max-height:94vh;overflow:auto;background:#141a27;border:1px solid #3a465e;border-radius:13px;box-shadow:0 30px 100px #0008}.dialog-head{display:flex;justify-content:space-between;gap:20px;padding:24px 27px 19px;border-bottom:1px solid var(--line)}.dialog h2{font-size:23px;letter-spacing:-.6px;margin-bottom:5px}.dialog-head p{font-size:11px;color:var(--muted)}.close{width:30px;height:30px;padding:0;background:none;font-size:20px}.dialog-body{padding:23px 27px;display:grid;gap:18px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.field{display:grid;gap:6px;color:var(--muted);font-size:11px}.field.full{grid-column:1/-1}.field input,.field select{background:#0f1521;border:1px solid #35425b;border-radius:7px;padding:10px 11px;color:#e8ecf7;width:100%;font-size:12px;min-width:0}.help{font-size:11px;color:var(--muted);margin-top:7px}.section-title{font-size:12px;font-weight:600;margin-bottom:10px}.dialog-footer{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:17px 27px;border-top:1px solid var(--line);flex-wrap:wrap}.dialog-footer p{font-size:10px;color:var(--muted);max-width:300px}.drawer-overlay{justify-content:flex-end;padding:0}.drawer{height:100%;max-height:none;width:650px;border-radius:0;display:flex;flex-direction:column}.drawer .dialog-body{overflow:auto;flex:1}.identity{display:grid;grid-template-columns:110px 1fr;gap:10px;border:1px solid var(--line);background:#0e1420;border-radius:8px;padding:14px;font-size:11px}.identity dt{color:var(--muted)}.identity dd{margin:0;overflow-wrap:anywhere}.identity code{font-size:10px}.log{font:11px/1.6 Consolas,"Courier New",monospace;white-space:pre-wrap;overflow-wrap:anywhere;background:#0b111c;border:1px solid var(--line);padding:14px;border-radius:8px;max-height:330px;overflow:auto;color:#c2d0e5;margin:0}.decision{border:1px solid #716138;background:#332e1d;padding:13px;border-radius:8px}.decision form{display:flex;gap:7px;margin-top:10px}.decision input{min-width:0;flex:1;background:#0f1521;border:1px solid var(--line);color:inherit;padding:8px;border-radius:5px}.toast{position:fixed;bottom:25px;left:50%;transform:translateX(-50%);background:#28364c;border:1px solid #5b6b88;color:#edf2fc;padding:13px 20px;border-radius:8px;z-index:40;font-size:12px;max-width:90vw}
+    #accept-uncertainty{flex:0 0 16px;width:16px;height:16px;min-width:16px;padding:0;accent-color:var(--purple)}
+    .live-context{border-top:1px solid var(--line);margin-top:16px;padding-top:13px;font-size:11px}.live-context .log{max-height:190px;margin-top:8px}.live-context details{margin-top:10px}.decision-context{margin-top:16px;font-size:12px}.decision-context h3{font-size:15px;margin-bottom:8px}.decision-context details{margin:12px 0}.decision-context .log{max-height:190px}.choice-list{display:grid;gap:8px;margin-top:15px}.choice-list button{white-space:normal;text-align:left;width:100%;padding:12px}.choice-list small{display:block;color:var(--muted);font-size:11px;white-space:pre-wrap;margin-top:5px;font-weight:400}.choice-list .primary small{color:#2e234e}.finding{margin:12px 0;overflow-wrap:anywhere}.finding strong{display:block}.finding p{margin:4px 0;font-size:11px;color:#cad3e4}.inline-ack{display:flex;align-items:flex-start;gap:9px;margin:12px 0}.inline-ack input{flex:0 0 16px;min-width:16px;width:16px;height:16px;padding:0;accent-color:var(--purple)}
+    @media(min-width:1650px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media(max-width:1000px){.layout{grid-template-columns:180px minmax(0,1fr)}.page{padding:25px}.heading{align-items:flex-start;flex-wrap:wrap}.grid{grid-template-columns:1fr}}
+    @media(max-width:650px){.layout{grid-template-columns:1fr}.sidebar{display:none}.topbar{height:55px;padding:0 18px}.page{padding:22px 18px}.metrics{grid-template-columns:1fr 1fr;gap:9px}.metric{padding:13px}.toolbar{align-items:stretch;flex-direction:column}.search{max-width:none}.grid{grid-template-columns:minmax(0,1fr)}h1{font-size:25px}.overlay{padding:10px}.drawer-overlay{padding:0}.form-grid{grid-template-columns:1fr}.dialog-head,.dialog-body,.dialog-footer{padding-left:18px;padding-right:18px}.identity{grid-template-columns:80px minmax(0,1fr)}}
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand"><div class="brandmark">H</div><div>Harness<small>STUDIO</small></div></div>
+      <nav class="nav" aria-label="Main navigation"><p class="eyebrow">Workspace</p><button class="active" id="nav-sessions">Sessions</button><button id="nav-history">Run history</button><button id="add-workspace">+ Add workspace</button></nav>
+      <section><p class="eyebrow">Projects</p><div class="projects" id="projects"></div></section>
+      <div class="localbox"><strong>Local control plane</strong>Keys stay on the server.<br>One writer per workspace.</div>
+    </aside>
+    <main class="main">
+      <header class="topbar"><span>Workspace &nbsp; / &nbsp; Sessions</span><span class="local-pill" id="connection">Connecting...</span></header>
+      <div class="page">
+        <div class="heading"><div><h1>Your agents, in view.</h1><p class="subtitle">Start, follow, and recover BMAD work in its original VS Code session.</p></div><div class="actions"><button id="refresh" class="ghost">Refresh</button><button id="mobile-workspace" class="ghost">Workspaces</button><button id="new-session" class="primary">+ New session</button></div></div>
+        <div class="banner" id="app-error" role="alert"></div>
+        <div class="metrics"><div class="metric"><span>Actively monitored</span><strong id="metric-running">0</strong></div><div class="metric"><span>Needs attention</span><strong id="metric-attention">0</strong></div><div class="metric"><span>Queued</span><strong id="metric-queued">0</strong></div><div class="metric"><span>Validated runs</span><strong id="metric-completed">0</strong></div></div>
+        <div class="toolbar"><div class="tabs" role="group" aria-label="Filter sessions"><button class="active" data-filter="all">All sessions</button><button data-filter="running">Running</button><button data-filter="attention">Attention</button><button data-filter="queued">Queued</button></div><input id="search" class="search" aria-label="Search sessions" placeholder="Search project, story, or session..."></div>
+        <section class="grid" id="cards" aria-label="Harness sessions"><p class="empty">Loading your saved harness runs...</p></section>
+        <p class="safety">Reconnecting follows the recorded turn. It never silently restarts development. Parallel work requires independent workspaces; shared workspaces are queued.</p>
+      </div>
+    </main>
+  </div>
+
+  <div class="overlay" id="setup-overlay" hidden>
+    <section class="dialog" role="dialog" aria-modal="true" aria-labelledby="setup-title" tabindex="-1">
+      <header class="dialog-head"><div><p class="eyebrow">New session</p><h2 id="setup-title">Give your next run a workspace.</h2><p>Select the work and bind it to a verified VS Code session.</p></div><button class="close" aria-label="Close setup" data-close>&times;</button></header>
+      <form id="setup-form"><div class="dialog-body">
+        <div class="form-grid"><label class="field full">Workspace<select id="setup-workspace" aria-label="Workspace" required></select></label><label class="field">Run type<select id="setup-type" aria-label="Run type"><option value="epic">Full epic</option><option value="story">Single story</option></select></label><label class="field">Epic or story<select id="setup-target" aria-label="Epic or story" required></select></label></div>
+        <section><h3 class="section-title">VS Code session</h3><label class="field">Sessions matching this workspace<select id="setup-session" aria-label="Sessions matching this workspace" required></select></label><p class="help" id="session-help">Busy sessions must be recovered, not restarted.</p><div class="actions" style="margin-top:12px"><button type="button" id="discover">Discover sessions</button><button type="button" id="open-workspace">Open workspace in VS Code</button></div></section>
+        <section><h3 class="section-title">Or create a new session</h3><label class="field">Running VS Code editor host<select id="setup-host" aria-label="Running VS Code editor host"><option value="">Discover hosts first</option></select></label><button type="button" id="create-session" style="margin-top:10px">Create idle VS Code session</button><p class="help">Creates no agent turn. Agents and models are checked when the run starts.</p></section>
+        <div class="notice safe">The selected session is saved for this work. An epic uses this selected session for its stories. Existing work is never silently replaced.</div><div class="banner" id="setup-error" role="alert"></div>
+      </div><footer class="dialog-footer"><p id="setup-mode">Policy comes from the workspace config. Human tool approvals remain in VS Code.</p><div class="actions"><button type="button" class="ghost" data-close>Cancel</button><button type="submit" class="primary" id="setup-submit">Start epic</button></div></footer></form>
+    </section>
+  </div>
+
+  <div class="overlay" id="workspace-overlay" hidden>
+    <section class="dialog" role="dialog" aria-modal="true" aria-labelledby="workspace-title" tabindex="-1">
+      <header class="dialog-head"><div><p class="eyebrow">Workspace setup</p><h2 id="workspace-title">Add a project or worktree.</h2><p>Register an existing configuration, or inherit the default settings for another repo.</p></div><button class="close" aria-label="Close workspace setup" data-close>&times;</button></header>
+      <form id="workspace-form"><div class="dialog-body"><label class="field">Display name<input id="workspace-name" required maxlength="80" placeholder="Catan / epic-2 worktree"></label><label class="field">Existing harness config (absolute path, optional)<input id="workspace-config" placeholder="C:\configs\epic-2.yaml"></label><label class="field">Repository or worktree (if not using an existing config)<input id="workspace-repo" placeholder="C:\Catan-worktrees\epic-2"></label><div class="form-grid"><label class="field">Stories directory<input id="workspace-stories" value="_bmad-output\implementation-artifacts"></label><label class="field">Epic plan<input id="workspace-epics" value="_bmad-output\planning-artifacts\epics.md"></label></div><div class="notice neutral">Use an existing, independently prepared Git worktree for parallel development. The app does not create branches or waive story dependencies. Generated configs and app data stay outside the target repo.</div><div class="banner" id="workspace-error" role="alert"></div></div><footer class="dialog-footer"><p>Inherited settings use Watch mode and the default Azure credential source.</p><button class="primary" type="submit">Add workspace</button></footer></form>
+    </section>
+  </div>
+
+  <div class="overlay drawer-overlay" id="detail-overlay" hidden>
+    <section class="dialog drawer" role="dialog" aria-modal="true" aria-labelledby="detail-title" tabindex="-1">
+      <header class="dialog-head"><div><p class="eyebrow">Session and recovery</p><h2 id="detail-title">Reconnect, don't restart.</h2><p id="detail-subtitle"></p></div><button class="close" aria-label="Close session details" data-close>&times;</button></header>
+      <div class="dialog-body">
+        <div class="notice safe" id="detail-status"></div><dl class="identity" id="detail-identity"></dl>
+        <section><h3 class="section-title">Errors for this run</h3><div class="notice" id="detail-error" style="margin:0" role="alert"></div></section>
+        <section id="recovery-decision" class="decision" hidden>
+          <h3 class="section-title">Recovery paused for your decision</h3>
+          <p class="help">Development was recovered. The advisory assessment reported uncertainty, so automatic continuation stopped. This is not a frozen agent.</p>
+          <p id="recovery-next" class="section-title" style="margin-top:12px"></p>
+          <ul id="recovery-uncertainties"></ul>
+          <details><summary>Assessment summary</summary><p id="recovery-summary" class="help"></p></details>
+          <label style="display:flex;gap:10px;align-items:flex-start;margin-top:15px;font-size:12px"><input type="checkbox" id="accept-uncertainty" style="margin-top:4px"><span>I have reviewed these uncertainties and authorize continuing this saved workflow. Review and Phase 1 must still run; this does not accept the implementation or mark the story Done.</span></label>
+          <div class="actions" style="margin-top:13px"><button type="button" class="primary" id="recovery-confirm">Continue after review</button></div>
+        </section>
+        <section id="decision-section" hidden><div id="decision-card"></div></section>
+        <section><h3 class="section-title">Live session response</h3><button id="inspect-button" class="ghost">Refresh original session</button><pre id="detail-response" class="log" style="margin-top:10px">Choose Refresh original session to inspect without sending a message.</pre></section>
+        <section><h3 class="section-title">Owned session terminals</h3><p class="help" id="detail-sync">Backend checks every 30 seconds, including while decisions are pending.</p><div id="detail-terminals"></div></section>
+        <section><h3 class="section-title">Harness output</h3><pre id="detail-output" class="log">No app-managed output yet.</pre></section>
+        <details><summary>Saved run report</summary><pre class="log" id="detail-report"></pre></details>
+      </div>
+      <footer class="dialog-footer"><p id="recovery-help">Recovery is bound to the original session and turn.</p><div class="actions"><button id="detail-open">Open workspace</button><button id="watch-button">Reconnect &amp; watch</button><button id="continue-button" class="primary">Continue workflow</button></div></footer>
+    </section>
+  </div>
+  <div class="toast" id="toast" role="status" hidden></div>
+  <script nonce="__NONCE__">
+    "use strict";
+    const $ = (selector) => document.querySelector(selector);
+    const $$ = (selector) => [...document.querySelectorAll(selector)];
+    const token = $('meta[name="app-token"]').content;
+    let data = {workspaces:[],tasks:[]};
+    let filter = "all", history = false, projectFilter = "", selection, previousFocus, toastTimer, refreshing = false;
+    const localErrors = new Map();
+    const pendingActions = new Set();
+    const recoveryAcknowledgments = new Map();
+    const element = (tag, cls, text) => {const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;};
+    const button = (text, action, cls="") => {const e=element("button",cls,text);e.type="button";e.addEventListener("click",()=>{void Promise.resolve().then(action).catch(error=>toast(error.message));});return e;};
+    function toast(text){clearTimeout(toastTimer);$("#toast").textContent=text;$("#toast").hidden=false;toastTimer=setTimeout(()=>$("#toast").hidden=true,5000);}
+    async function api(route, input){
+      const response=await fetch(route,{method:input===undefined?"GET":"POST",headers:{"X-Harness-Token":token,...(input===undefined?{}:{"Content-Type":"application/json"})},body:input===undefined?undefined:JSON.stringify(input)});
+      const text=await response.text();let value;try{value=JSON.parse(text);}catch{throw new Error(text||"The app returned an empty response.");}
+      if(!response.ok)throw new Error(value.error||text);return value;
+    }
+    function close(){ $$(".overlay").forEach(e=>e.hidden=true);document.body.style.overflow="";previousFocus?.focus(); }
+    function open(id){close();previousFocus=document.activeElement;$(id).hidden=false;document.body.style.overflow="hidden";$(id).querySelector('[role="dialog"]').focus();}
+    function tasksFor(run){return data.tasks.filter(t=>t.runId===run.id&&t.profileId===run.profileId);}
+    function latestTask(run){return tasksFor(run).at(-1);}
+    function runState(run){
+      const task=latestTask(run);
+      if(task&&["running","decision"].includes(task.state))return "running";
+      if(run.harnessRunning)return "running";
+      if(run.outcome==="finished"||run.outcome==="finished-with-gaps")return "completed";
+      if(run.recoveryPaused)return "paused";
+      if(run.recovered&&!run.agentStatus.includes("running"))return "ready";
+      return "attention";
+    }
+    const runKey = run => run.profileId+run.id;
+    function sessionContext(run, expanded=false){
+      const section=element("section","live-context");if(!run)return section;
+      const sync=run.sessionSync,inspection=sync?.inspection,latest=inspection?.activeTurn||inspection?.recentTurns.at(-1);
+      section.append(element("p","section-title","Latest VS Code session / backend sync"));
+      section.append(element("p","meta",sync?.checkedAt?"Last successful sync: "+new Date(sync.checkedAt).toLocaleTimeString()+" / every 30 seconds":"Initial background sync pending / every 30 seconds"));
+      if(sync?.error)section.append(element("p","notice","Session sync error: "+sync.error+(sync.checkedAt?" Showing the last successful observation.":"")));
+      else if(sync?.checkedAt&&Date.now()-Date.parse(sync.checkedAt)>60000)section.append(element("p","notice","Session observation is stale. The backend is still retrying; do not assume the displayed activity is current."));
+      if(run.sessionAdvanced)section.append(element("p","notice neutral","VS Code has progressed beyond the harness's recorded turn. Review the current response and terminal output before acting on an older decision. Progress alone is not a harness acceptance verdict."));
+      section.append(element("p","help","Harness stage: "+(run.stage||"not started")+". Diff versus story (Phase 1): "+(run.phase1?.outcome||"not run")+". Final acceptance: "+(["finished","finished-with-gaps"].includes(run.outcome)?run.outcome:"not established")+"."));
+      if(latest){
+        const response=element("details");response.open=expanded;response.append(element("summary","","Latest response / "+latest.id),element("pre","log",latest.text||"No response text yet."));section.append(response);
+      }
+      if(inspection?.terminals.length){
+        const terminals=element("details");terminals.open=expanded;terminals.append(element("summary","","Owned terminal output ("+inspection.terminals.length+")"));
+        for(const terminal of inspection.terminals){terminals.append(element("p","help",terminal.title),element("pre","log",terminal.text||"(no terminal output yet)"));}
+        section.append(terminals);
+      }
+      return section;
+    }
+    async function chooseDecision(run,task,choice){
+      if(pendingActions.has(task.id))return;
+      pendingActions.add(task.id);render();
+      try{await api("/api/respond",{taskId:task.id,answer:choice.id,decisionId:task.decision.id});if(run)localErrors.delete(runKey(run));await refresh();toast("Sent decision: "+choice.label);}
+      catch(error){if(run)localErrors.set(runKey(run),error.message);else $("#app-error").textContent=error.message;}
+      finally{pendingActions.delete(task.id);render();}
+    }
+    function decisionCard(run,task){
+      const panel=element("section","decision decision-context");panel.setAttribute("aria-label","Pending decision and choices");
+      const decision=task.decision;
+      if(!decision){panel.append(element("h3","","Decision context unavailable"),element("p","notice",task.decisionError||"Inspect this task's output before responding."));return panel;}
+      panel.append(element("p","eyebrow","Decision required"),element("h3","",decision.question),element("p","help",decision.reason),element("p","meta","Asked: "+new Date(decision.createdAt).toLocaleString()));
+      const background=element("details");background.open=true;background.append(element("summary","","Decision background"),element("pre","log",decision.background||"No additional background was recorded."));panel.append(background);
+      if(decision.backgroundError)panel.append(element("p","notice",decision.backgroundError));
+      if(decision.findings.length){
+        const findings=element("details");findings.open=true;findings.append(element("summary","",decision.findings.length+" review findings"),element("p","meta",decision.findingsSource||"Review background"));
+        for(const finding of decision.findings){const item=element("div","finding");item.append(element("strong","",finding.id+" / "+finding.severity+" / "+finding.file),element("p","",finding.what),element("p","","Suggested correction: "+finding.suggested_fix));findings.append(item);}
+        panel.append(findings);
+      }
+      if(run)panel.append(sessionContext(run,true));
+      const choices=element("div","choice-list");
+      for(const choice of decision.choices){const option=button(choice.label,()=>chooseDecision(run,task,choice),choice.id==="fix"?"primary":"");option.setAttribute("aria-label",choice.label);option.append(element("small","",choice.detail||("Option ID: "+choice.id)));option.disabled=pendingActions.has(task.id);choices.append(option);}
+      panel.append(element("p","help","Choose explicitly. Background polling continues while you decide; no choice is made from terminal text."),choices);
+      return panel;
+    }
+    function recoveryCard(run){
+      const panel=element("section","decision decision-context");panel.setAttribute("aria-label","Recovery decision and choices");
+      panel.append(element("h3","","Recovery needs your decision"),element("p","help","The saved assessment recommends: "+(run.recoveryAssessment?.next_step||"inspect the assessment")));
+      panel.append(element("p","help",run.recoveryAssessment?.summary||run.recoveryAssessmentError||"Saved assessment unavailable."));
+      const list=element("ul");for(const text of run.recoveryAssessment?.uncertainties||[])list.append(element("li","help",text));panel.append(list,sessionContext(run,true));
+      const key=runKey(run),fingerprint=run.recoveryAssessmentFingerprint;
+      if(recoveryAcknowledgments.get(key)!==fingerprint)recoveryAcknowledgments.delete(key);
+      const label=element("label","inline-ack"),check=element("input");check.type="checkbox";check.checked=recoveryAcknowledgments.get(key)===fingerprint&&!!fingerprint;check.disabled=!run.recoveryAssessment;
+      label.append(check,element("span","","I reviewed these uncertainties and authorize continuing the saved workflow. Review and Phase 1 remain mandatory."));
+      check.addEventListener("change",()=>{if(check.checked)recoveryAcknowledgments.set(key,fingerprint);else recoveryAcknowledgments.delete(key);render();});
+      const proceed=button("Continue saved workflow",()=>recoverRun(run,"continue",recoveryAcknowledgments.get(key)),"primary");proceed.disabled=!check.checked||pendingActions.has(key)||/running|waiting for input|unknown/.test(run.agentStatus);
+      panel.append(label,proceed,element("p","help","Leave unchecked to keep this workflow paused. Sync still runs every 30 seconds."));
+      return panel;
+    }
+    function render(){
+      const projects=$("#projects");projects.replaceChildren();
+      projects.append(button("All workspaces",()=>{projectFilter="";render();}));
+      data.workspaces.forEach(p=>projects.append(button(p.name,()=>{projectFilter=p.id;render();})));
+      const runs=data.workspaces.flatMap(p=>p.runs.map(r=>({...r,profile:p})));
+      const unique=new Set();
+      const shown=runs.filter(run=>{
+        if(history)return true;
+        const key=run.profileId+"|"+(run.session||run.id)+"|"+run.target;
+        if(unique.has(key))return false;unique.add(key);return true;
+      });
+      $("#metric-running").textContent=String(shown.filter(r=>runState(r)==="running").length+data.tasks.filter(t=>!t.runId&&["running","decision"].includes(t.state)).length);
+      $("#metric-attention").textContent=String(shown.filter(r=>["attention","paused"].includes(runState(r))||latestTask(r)?.state==="decision").length+data.tasks.filter(t=>!t.runId&&["error","detached"].includes(t.state)).length);
+      $("#metric-queued").textContent=String(data.tasks.filter(t=>t.state==="queued").length);
+      $("#metric-completed").textContent=String(runs.filter(r=>["finished","finished-with-gaps"].includes(r.outcome)).length);
+      const cards=$("#cards");cards.replaceChildren();
+      const query=$("#search").value.toLowerCase();
+      for(const profile of data.workspaces){
+        if(profile.error||profile.discoveryError||profile.syncError){
+          const error=element("div","banner",profile.name+": "+(profile.error||profile.discoveryError||profile.syncError));cards.append(error);
+        }
+      }
+      for(const run of shown){
+        const state=runState(run),task=latestTask(run);
+        if(projectFilter&&run.profileId!==projectFilter)continue;
+        if(filter!=="all"&&!(filter==="attention"&&(task?.state==="decision"||state==="paused"))&&state!==filter)continue;
+        if(![run.target,run.title,run.session,run.profile.name].join(" ").toLowerCase().includes(query))continue;
+        const card=element("article","card"+(["attention","paused"].includes(state)?" attention":""));
+        const body=element("div","card-body"),top=element("div","card-top");
+        top.append(element("span","project",run.profile.name),element("span","badge"+(["attention","ready","paused"].includes(state)?" warn":state==="completed"?" gray":""),task?.state==="decision"?"Decision needed":state==="paused"?"Recovery decision needed":state==="attention"?"Monitor disconnected":state==="ready"?"Ready to continue":state==="completed"?"Finished":"Monitoring"));
+        body.append(top,element("h2","",run.target),element("p","description",run.title||run.id));
+        const stage=element("div","stage");stage.append(element("span","",run.stage||"Not dispatched"),element("span","",run.agentStatus));body.append(stage);
+        const track=element("div","track"),index=["create","develop","review","phase1","test"].indexOf(run.stage);
+        for(let i=0;i<5;i++)track.append(element("span",state==="completed"||i<index?"done":i===index?"current":""));body.append(track);
+        body.append(element("p","meta",(run.session||"No saved session")+" | "+new Date(run.updatedAt).toLocaleTimeString()));
+        const actionError=localErrors.get(run.profileId+run.id);
+        const error=actionError||(["error","detached"].includes(task?.state)?task.error:undefined)||run.error;
+        if(error&&(actionError||task?.state!=="decision")){const notice=element("div","notice"+(state==="paused"&&!actionError?" neutral":""));notice.append(element("strong","",actionError?"Decision action failed":state==="paused"?"Recovered, then paused safely":run.agentStatus.includes("running")?"The story is running; the monitor needs attention.":"Last recorded error"),document.createTextNode(actionError||(state==="paused"?"The recovery assessment reported unresolved uncertainty. Review it and explicitly authorize continuing, or keep the run paused.":error)));body.append(notice);}
+        else body.append(element("div","notice safe",state==="completed"?"The configured workflow finished.":"The session and run identity are tracked independently from the app window."));
+        if(task?.state==="decision")body.append(decisionCard(run,task));
+        else if(state==="paused")body.append(recoveryCard(run));
+        else body.append(sessionContext(run));
+        card.append(body);const footer=element("footer","card-footer");
+        footer.append(button("Open workspace",()=>perform(()=>api("/api/open",{profileId:run.profileId}),run)),button(state==="paused"?"Review recovery decision":state==="attention"||state==="ready"?"Reconnect / Continue":"View activity",()=>showRun(run),"primary"));card.append(footer);cards.append(card);
+      }
+      for(const task of data.tasks.filter(t=>!t.runId||t.state==="queued")){
+        if(projectFilter&&task.profileId!==projectFilter)continue;
+        if(filter!=="all"&&!(filter==="attention"&&["error","detached","decision"].includes(task.state))&&task.state!==filter)continue;
+        const profile=data.workspaces.find(p=>p.id===task.profileId);
+        if(![task.target,profile?.name,task.state].join(" ").toLowerCase().includes(query))continue;
+        const card=element("article","card"),body=element("div","card-body");
+        body.append(element("p","eyebrow",profile?.name||"Workspace"),element("h2","",task.target),element("p","description",task.kind+" / "+task.state));
+        body.append(element("div","notice"+(task.error?"":" neutral"),task.error||(task.state==="queued"?"Waiting for this workspace to be idle. No agent turn has been dispatched.":task.output?.slice(-1000)||"Starting harness...")));
+        if(task.state==="decision")body.append(decisionCard(undefined,task));
+        card.append(body);
+        const footer=element("footer","card-footer");footer.append(button("View output",()=>showTask(task)));card.append(footer);cards.append(card);
+      }
+      if(!cards.children.length)cards.append(element("p","empty","No matching runs. Use New session to select a workspace, story or epic, and VS Code session."));
+      if(selection&&!$("#detail-overlay").hidden)updateDetail();
+    }
+    async function refresh(){
+      if(refreshing)return;refreshing=true;
+      try{data=await api("/api/state");$("#app-error").textContent="";$("#connection").textContent="Local / connected";render();}
+      catch(error){$("#app-error").textContent="App connection error: "+error.message+"\nExisting VS Code agents may still be running. Do not start duplicate work.";$("#connection").textContent="Disconnected";}
+      finally{refreshing=false;}
+    }
+    async function perform(action,run){
+      try{const result=await action();if(run)localErrors.delete(run.profileId+run.id);await refresh();return result;}
+      catch(error){if(run){localErrors.set(run.profileId+run.id,error.message);render();}else $("#app-error").textContent=error.message;throw error;}
+    }
+    function selectedProfile(){return data.workspaces.find(p=>p.id===$("#setup-workspace").value);}
+    function fillTargets(){
+      const profile=selectedProfile();const options=profile?.stories||[];$("#setup-target").replaceChildren();
+      if($("#setup-type").value==="epic"){
+        for(const id of [...new Set(options.map(s=>s.id.split(".")[0]))])$("#setup-target").append(new Option("Epic "+id,"epic-"+id));
+      }else for(const story of options)$("#setup-target").append(new Option(story.id+" - "+story.title+" ["+story.status+"]",story.id));
+      fillSessions();
+    }
+    function fillSessions(keepId){
+      const profile=selectedProfile(),select=$("#setup-session");const old=keepId||select.value;select.replaceChildren();
+      for(const session of profile?.sessions||[])select.append(new Option(session.title+" ["+session.status+"]",session.id));
+      if(!select.options.length)select.append(new Option("No sessions found - open VS Code or create one",""));
+      if([...select.options].some(o=>o.value===old))select.value=old;
+      updateStart();
+    }
+    function updateStart(){
+      const profile=selectedProfile(),session=profile?.sessions.find(s=>s.id===$("#setup-session").value);
+      const busy=session&&/running|waiting for input/.test(session.status);
+      $("#setup-submit").textContent=busy?"Reconnect existing run":$("#setup-type").value==="story"?"Start story":"Start epic";
+      $("#setup-submit").disabled=!session||!$("#setup-target").value;
+      $("#session-help").textContent=busy?"This session is already working. Reconnect its saved run rather than send a new story.":"Idle sessions can be bound to new work. Another active writer in this workspace will queue the run.";
+    }
+    async function setup(){
+      await refresh();$("#setup-error").textContent="";$("#setup-workspace").replaceChildren(...data.workspaces.map(p=>new Option(p.name+" - "+(p.repo||"config error"),p.id)));
+      fillTargets();open("#setup-overlay");
+      try{const hosts=await api("/api/hosts");$("#setup-host").replaceChildren(...hosts.map(h=>new Option(h.type+" host "+h.pid+" / "+h.instanceId,h.instanceId)));if(!hosts.length)$("#setup-host").append(new Option("Open a VS Code workspace first",""));}
+      catch(error){$("#setup-error").textContent=error.message;}
+    }
+    function showRun(run){selection={profileId:run.profileId,runId:run.id};$("#accept-uncertainty").checked=false;$("#detail-response").textContent="Choose Refresh original session to inspect without sending a message.";open("#detail-overlay");updateDetail();}
+    function showTask(task){selection={profileId:task.profileId,taskId:task.id};$("#accept-uncertainty").checked=false;$("#detail-response").textContent="This task has not recorded a run yet.";open("#detail-overlay");updateDetail();}
+    function currentRun(){return selection?.runId?data.workspaces.find(p=>p.id===selection.profileId)?.runs.find(r=>r.id===selection.runId):undefined;}
+    function currentTask(){const run=currentRun();return run?latestTask(run):data.tasks.find(t=>t.id===selection?.taskId);}
+    function updateDetail(){
+      const run=currentRun(),task=currentTask();if(!run&&!task)return;
+      $("#detail-subtitle").textContent=(run?.target||task?.target||"Run")+" / "+(run?.title||task?.kind||"Saved run");
+      $("#detail-status").textContent=run?("Agent: "+run.agentStatus+". Harness: "+(runState(run)==="running"?"monitoring":runState(run)==="paused"?"paused for your decision":"not monitoring")+". No story will be resent during recovery."):"Task: "+task.state;
+      const identity=$("#detail-identity");identity.replaceChildren();const profile=data.workspaces.find(p=>p.id===selection.profileId);
+      for(const [label,value]of Object.entries({Workspace:profile?.repo||profile?.name,Run:run?.id||task?.id,Session:run?.session||task?.session,Turn:run?.turnId,Stage:run?.stage})){identity.append(element("dt","",label),element("dd","",value||"Not recorded"));}
+      $("#detail-error").textContent=localErrors.get(selection.profileId+selection.runId)||task?.error||run?.error||"No recorded error for this run.";
+      $("#detail-output").textContent=task?.output||"This run was started outside the app. Its saved report and original session are available.";
+      $("#detail-report").textContent=run?.report||"No saved report yet.";
+      const managed=task&&["queued","running","decision"].includes(task.state),finished=run&&["finished","finished-with-gaps"].includes(run.outcome);
+      $("#decision-section").hidden=task?.state!=="decision";
+      $("#decision-card").replaceChildren(...(task?.state==="decision"?[decisionCard(run,task)]:[]));
+      $("#recovery-decision").hidden=!run?.recoveryPaused||managed;
+      if(selection.assessmentFingerprint!==run?.recoveryAssessmentFingerprint)$("#accept-uncertainty").checked=false;
+      $("#accept-uncertainty").disabled=!run?.recoveryAssessment||managed;
+      $("#recovery-uncertainties").replaceChildren(...(run?.recoveryAssessment?.uncertainties||[]).map(text=>element("li","help",text)));
+      $("#recovery-summary").textContent=run?.recoveryAssessment?.summary||run?.recoveryAssessmentError||"Saved assessment unavailable. Inspect the run before continuing.";
+      $("#recovery-next").textContent="Suggested next step: "+(run?.recoveryAssessment?.next_step||"inspect the saved assessment");
+      if(run?.recoveryAssessmentError)$("#detail-error").textContent=run.recoveryAssessmentError;
+      $("#watch-button").disabled=!run?.turnId||managed||run.harnessRunning||finished;
+      $("#continue-button").disabled=!run?.turnId||managed||run.harnessRunning||finished||/running|waiting for input|unknown/.test(run.agentStatus)||(run.recoveryPaused&&(!run.recoveryAssessment||!$("#accept-uncertainty").checked));
+      $("#continue-button").textContent=run?.recoveryPaused?"Continue after review":"Continue workflow";
+      $("#continue-button").hidden=!!run?.recoveryPaused;
+      $("#recovery-confirm").disabled=$("#continue-button").disabled||pendingActions.has(run?runKey(run):"");
+      const sync=run?.sessionSync,observed=sync?.inspection,latest=observed?.activeTurn||observed?.recentTurns.at(-1);
+      $("#detail-sync").textContent=(sync?.checkedAt?"Last successful sync: "+new Date(sync.checkedAt).toLocaleString()+". ":"Background sync has not completed yet. ")+"Backend checks every 30 seconds, including while decisions are pending."+(sync?.error?" Sync error: "+sync.error:"");
+      if(latest)$("#detail-response").textContent=latest.text||"No response text yet.";
+      $("#detail-terminals").replaceChildren(...(observed?.terminals||[]).flatMap(terminal=>[element("p","help",terminal.title),element("pre","log",terminal.text||"(no output yet)")]));
+      $("#inspect-button").disabled=!run?.session;
+      $("#recovery-help").textContent=managed?"An app process already owns this operation. Follow its output; don't start it again.":run?.recoveryPaused?"Your confirmation overrides advisory uncertainty only. Session checks, review, and validation are unchanged.":"Reconnect follows the saved turn. Continue assesses it and resumes supported stages.";
+    }
+    async function recover(action){
+      const run=currentRun();if(!run)return;
+      return recoverRun(run,action,$("#accept-uncertainty").checked?selection.assessmentFingerprint:undefined);
+    }
+    async function recoverRun(run,action,fingerprint){
+      const key=runKey(run);if(pendingActions.has(key))return;
+      const acceptUncertainty=action==="continue"&&run.recoveryPaused&&fingerprint===run.recoveryAssessmentFingerprint&&!!fingerprint;
+      if(action==="continue"&&run.recoveryPaused&&!acceptUncertainty){localErrors.set(key,"Review the saved uncertainties and explicitly confirm before continuing.");render();return;}
+      pendingActions.add(key);render();
+      try{await perform(()=>api("/api/recover",{profileId:run.profileId,runId:run.id,action,acceptUncertainty,assessmentFingerprint:acceptUncertainty?fingerprint:undefined}),run);recoveryAcknowledgments.delete(key);$("#accept-uncertainty").checked=false;if(selection)delete selection.assessmentFingerprint;toast(action==="watch"?"Following the original turn. No story was resent.":"Continuing the recorded workflow; review and validation still apply.");}
+      catch(error){localErrors.set(key,error.message);}
+      finally{pendingActions.delete(key);render();}
+    }
+    $("#refresh").addEventListener("click",refresh);$("#new-session").addEventListener("click",()=>void setup());
+    $("#nav-sessions").addEventListener("click",()=>{history=false;$("#nav-sessions").classList.add("active");$("#nav-history").classList.remove("active");render();});
+    $("#nav-history").addEventListener("click",()=>{history=true;$("#nav-history").classList.add("active");$("#nav-sessions").classList.remove("active");render();});
+    for(const id of ["#add-workspace","#mobile-workspace"])$(id).addEventListener("click",()=>{$("#workspace-error").textContent="";open("#workspace-overlay");});
+    $$("[data-filter]").forEach(b=>b.addEventListener("click",()=>{filter=b.dataset.filter;$$("[data-filter]").forEach(x=>x.classList.toggle("active",x===b));render();}));
+    $("#search").addEventListener("input",render);$("#setup-workspace").addEventListener("change",fillTargets);$("#setup-type").addEventListener("change",fillTargets);$("#setup-session").addEventListener("change",updateStart);
+    $("#discover").addEventListener("click",async()=>{await refresh();fillSessions();toast("Session list refreshed.");});
+    $("#open-workspace").addEventListener("click",async()=>{try{await api("/api/open",{profileId:selectedProfile().id});toast("Workspace opened. Select its session explicitly.");}catch(error){$("#setup-error").textContent=error.message;}});
+    $("#create-session").addEventListener("click",async()=>{const control=$("#create-session");control.disabled=true;$("#setup-error").textContent="";try{const result=await api("/api/create-session",{profileId:selectedProfile().id,host:$("#setup-host").value});await refresh();fillSessions(result.id);toast("Idle session created. No agent turn started.");}catch(error){$("#setup-error").textContent=error.message;}finally{control.disabled=false;}});
+    $("#setup-form").addEventListener("submit",async event=>{event.preventDefault();const control=$("#setup-submit");control.disabled=true;$("#setup-error").textContent="";try{const profile=selectedProfile(),session=profile.sessions.find(s=>s.id===$("#setup-session").value);if(/running|waiting for input/.test(session.status)){const run=profile.runs.find(r=>r.session===session.id);if(!run)throw new Error("No saved harness run owns this active session. Do not dispatch another story into it.");showRun({...run,profile});return;}await api("/api/start",{profileId:profile.id,target:$("#setup-target").value,session:session.id});close();await refresh();toast("Run registered. Busy workspaces are queued safely.");}catch(error){$("#setup-error").textContent=error.message;}finally{control.disabled=false;}});
+    $("#workspace-form").addEventListener("submit",async event=>{event.preventDefault();const control=event.submitter;control.disabled=true;try{await api("/api/profiles",{name:$("#workspace-name").value,configFile:$("#workspace-config").value||undefined,repo:$("#workspace-repo").value||undefined,storiesDir:$("#workspace-stories").value,epicsFile:$("#workspace-epics").value});close();await refresh();toast("Workspace registered.");}catch(error){$("#workspace-error").textContent=error.message;}finally{control.disabled=false;}});
+    $("#watch-button").addEventListener("click",()=>void recover("watch"));$("#continue-button").addEventListener("click",()=>void recover("continue"));
+    $("#recovery-confirm").addEventListener("click",()=>void recover("continue"));
+    $("#accept-uncertainty").addEventListener("change",()=>{selection.assessmentFingerprint=$("#accept-uncertainty").checked?currentRun()?.recoveryAssessmentFingerprint:undefined;updateDetail();});
+    $("#detail-open").addEventListener("click",async()=>{try{await api("/api/open",{profileId:selection.profileId});toast("Owning workspace opened. The recorded session ID is shown above.");}catch(error){$("#detail-error").textContent=error.message;}});
+    $("#inspect-button").addEventListener("click",async()=>{const run=currentRun();if(!run)return;$("#inspect-button").disabled=true;try{await api("/api/inspect",{profileId:run.profileId,runId:run.id});await refresh();}catch(error){localErrors.set(run.profileId+run.id,error.message);$("#detail-error").textContent=error.message;}finally{$("#inspect-button").disabled=false;}});
+    $$("[data-close]").forEach(b=>b.addEventListener("click",close));$$(".overlay").forEach(o=>o.addEventListener("click",e=>{if(e.target===o)close();}));
+    document.addEventListener("keydown",event=>{const overlay=$$(".overlay").find(o=>!o.hidden);if(!overlay)return;if(event.key==="Escape")close();if(event.key!=="Tab")return;const items=[...overlay.querySelectorAll("button:not(:disabled),input,select")].filter(e=>e.checkVisibility());const first=items[0],last=items.at(-1);if(event.shiftKey&&(document.activeElement===first||document.activeElement.getAttribute("role")==="dialog")){event.preventDefault();last?.focus();}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first?.focus();}});
+    void refresh();setInterval(()=>void refresh(),5000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+# Copy to harness.config.yaml and point at a disposable Git repository first.
+# Keep the harness and its configuration outside the repository being driven.
+repo: 'C:\path\to\your-repo'
+stories_dir: '_bmad-output\implementation-artifacts'
+
+story_creation:
+  enabled: true
+  epics_file: '_bmad-output\planning-artifacts\epics.md'
+  agent: bmad-agent-pm
+  model: GPT-6.1 Sol
+
+# Use attach for a real VS Code session. Stub can overwrite fixture files.
+driver: stub
+mode: watch
+
+azure:
+  endpoint: https://your-resource.openai.azure.com
+  api_version: "2025-04-01-preview"
+  auth: aad
+  key_env: AZURE_OPENAI_KEY
+  deployments:
+    reader: your-reader-deployment
+    comparer: your-comparer-deployment
+    decider: your-decider-deployment
+    summarizer: your-summarizer-deployment
+
+# These agent and model names must be available in the selected VS Code session.
+bmad:
+  agents:
+    develop: bmad-agent-dev
+    review: bmad-agent-architect
+    test: bmad-tea
+  models:
+    develop: GPT-6.1 Sol
+    review: Claude Opus 5.5
+    test: GPT-6.1 Sol
+  status_field: Status
+  status_done: [Review, Done, Complete]
+
+phase1:
+  enabled: true
+  min_confidence: 0.5
+  ignore:
+    - "**/package-lock.json"
+    - "**/pnpm-lock.yaml"
+    - "**/yarn.lock"
+    - "**/*.snap"
+    - "**/dist/**"
+    - "**/build/**"
+    - "**/.next/**"
+    - "**/node_modules/**"
+    - "**/*.generated.*"
+  max_diff_chars: 120000
+  fail_on: [missing_criterion, stub_on_criterion_path]
+  escalate_on: [extra_in_protected_path, major_divergence]
+  blindness:
+    exclude:
+      - "_bmad-output/**"
+      - "docs/stories/**"
+      - "docs/epics/**"
+      - "docs/prd/**"
+      - "**/*.story.md"
+      - "**/CHANGELOG.md"
+    redact_criterion_text: true
+    assert_no_leak: true
+    max_verbatim_overlap: 0.35
+    decoy: every
+    decoy_tolerance: 0.34
+
+phase2:
+  enabled: false
+  needs:
+    - E2E_BASE_URL
+    - E2E_TENANT_ID
+    - E2E_CLIENT_ID
+    - E2E_MAILBOX
+    - GRAPH_MAIL_CREDENTIAL
+  # CI dispatch exists, but automatic result collection is not implemented.
+  when_missing: stop
+  ci_workflow: e2e.yml
+  rules:
+    every_criterion_needs_a_test: true
+    skipped_is_not_passed: true
+    all_skipped_is_failure: true
+    denial_tests_must_attempt: true
+
+decide:
+  shadow: true
+  confidence: 0.8
+  never: [schema-change, new-dependency, public-api-change, security-tradeoff]
+  fix_quietly: [naming, style, dead-code, docs, type-safety, test-coverage]
+  always_ask:
+    kinds: [security, auth, data-loss, privacy, migration]
+    files:
+      - "**/auth/**"
+      - "**/rls/**"
+      - "supabase/migrations/**"
+      - "**/*.env*"
+  never_touch:
+    - "supabase/migrations/**"
+    - "**/*.env*"
+    - ".github/workflows/**"
+    - ".github/agents/**"
+
+tool_approvals:
+  auto_allow: []
+
+limits:
+  fix_attempts: 2
+  questions_per_stage: 3
+  interruptions: 30
+  max_agent_turns: 500
+  max_minutes: 10080
+  turn_timeout_minutes: 1440

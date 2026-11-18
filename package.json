@@ -1,0 +1,41 @@
+{
+  "name": "bmad-harness",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Drives an existing BMAD session in VS Code through an epic, and checks what was built matches what was asked for.",
+  "bin": {
+    "harness": "./dist/main.js"
+  },
+  "scripts": {
+    "harness": "tsx src/main.ts",
+    "app": "tsx src/app/server.ts",
+    "build": "tsc && node -e \"require('node:fs').copyFileSync(require('node:path').join('src','app','index.html'),require('node:path').join('dist','src','app','index.html'))\"",
+    "check": "tsc --noEmit",
+    "selftest": "tsx src/selftest.ts",
+    "blindcheck": "tsx src/blindcheck.ts",
+    "test:config": "tsx --test src/config.test.ts",
+    "test:stories": "tsx --test src/run/creation.test.ts",
+    "test:app": "tsx --test src/app/app.test.ts",
+    "test:sessions": "tsx --test src/vscode/sessions.test.ts",
+    "test:diff": "tsx --test src/validate/diff.test.ts",
+    "test:guards": "tsx --test src/validate/guards.test.ts src/validate/phase2.test.ts src/decide/engine.test.ts",
+    "test:driver": "tsx --test src/vscode/approval.test.ts src/vscode/attach.test.ts src/vscode/bindings.test.ts src/vscode/sessions.test.ts src/vscode/transport.test.ts",
+    "test:recovery": "tsx --test src/run/assessment.test.ts src/run/baseline.test.ts src/run/lock.test.ts src/run/recover.test.ts src/run/restart.test.ts src/run/multistory.test.ts"
+  },
+  "dependencies": {
+    "@azure/identity": "^4.5.0",
+    "@microsoft/agent-host-protocol": "1.0.0",
+    "dotenv": "^16.6.1",
+    "minimatch": "^10.0.1",
+    "ws": "8.22.2",
+    "yaml": "^2.5.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.5",
+    "@types/ws": "8.18.2",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.3"
+  }
+}
